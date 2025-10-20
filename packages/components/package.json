@@ -1,0 +1,18 @@
+{
+  "name": "@bamboo-design/components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.2",
+  "dependencies": {
+    "unplugin-vue-define-options": "^3.1.1",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}
