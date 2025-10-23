@@ -1,1 +1,0 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const s=require("./input.vue.js"),n=e=>(e.install=u=>{const l=e.name;u.component(l,e)},e),t=n(s.default);exports.Input=t;exports.default=t;
