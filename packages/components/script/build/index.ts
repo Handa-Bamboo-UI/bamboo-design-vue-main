@@ -1,4 +1,5 @@
 import delPath from "./utils/delpath";
+import { TaskFunction } from "gulp";
 import { series, parallel,src,dest } from "gulp";
 import { pkgPath,componentPath} from "./paths";
 import less from 'gulp-less';
@@ -20,10 +21,11 @@ export const buildStyle = () => {
 export const buildComponent = async () => {
   run('pnpm run build', componentPath);
 };
-export default series(
+const build:TaskFunction = series(
   async () => removeDist(),
   parallel(
     async () => buildStyle(),
     async () => buildComponent()
   )
 );
+export default build;

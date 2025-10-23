@@ -3,11 +3,12 @@ import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import DefineOptions from "unplugin-vue-define-options/vite";
 
+
 export default defineConfig({
   build: {
     outDir: "es",
     rollupOptions: {
-      external: ["vue", /\.less/, "@bamboo-design/utils"],
+      external: ["vue",/\.less/,'@bamboo-design/utils'],
       input: ["index.ts"],
       output: [
         {
@@ -30,28 +31,28 @@ export default defineConfig({
       entry: "./index.ts",
     },
   },
-  plugins: [
+    plugins: [
     vue(),
     dts({
-      entryRoot: "./src",
-      outDir: ["../bamboo-design/es/src", "../bamboo-design/lib/src"],
+      entryRoot: "./",
+      outDir: ["../bamboo-design/es/", "../bamboo-design/lib/"],
+      exclude:["**/vite.config.ts","./script/"],
       tsconfigPath: "../../tsconfig.json",
     }),
-    DefineOptions(),
     {
-      name: "style",
-      generateBundle(config, bundle) {
-        const keys = Object.keys(bundle);
+      name:'style',
+      generateBundle(config,bundle){
+        const keys =Object.keys(bundle);
 
         for (const key of keys) {
-          const bundler: any = bundle[key as any];
-          this.emitFile({
-            type: "asset",
-            fileName: key,
-            source: bundler.code.replace(/\.less/g, ".css"),
-          });
-        }
-      },
-    },
+         const bundler : any=bundle[key as any];
+         this.emitFile({
+          type:'asset',
+          fileName:key,
+          source:bundler.code.replace(/\.less/,'.css')
+         })
+      }
+    }
+  }
   ],
 });

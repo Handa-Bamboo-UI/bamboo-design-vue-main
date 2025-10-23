@@ -1,0 +1,204 @@
+* .bm-button {
+  display: inline-flex;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: all 0.3s;
+  font-weight: 500;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0 0px 10px rgba(89, 89, 89, 0.08);
+  border: solid 0.2px rgba(255, 255, 255, 0.495);
+  position: relative;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+* .bm-button:hover {
+  filter: brightness(1.05);
+  scale: 1.03;
+  box-shadow: 0 0px 10px rgba(89, 89, 89, 0);
+}
+* .bm-button:active {
+  scale: 0.95;
+}
+.bm-button--enterAnimate {
+  animation: button-appear 0.5s ease-in-out;
+}
+@keyframes button-appear {
+  0% {
+    scale: 0.95 1;
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    scale: 1 1;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.bm-button .text {
+  position: relative;
+  z-index: 2;
+  scale: 1;
+  transition: all 0.5s;
+}
+.bm-button--alert .text {
+  text-shadow: 0 0px 10px rgba(89, 89, 89, 0.176);
+}
+.bm-button:hover .text {
+  scale: 1.05;
+  transition: all 0.2s;
+}
+.bm-button--disabled:hover .text {
+  scale: 1;
+  transition: all 0.2s;
+}
+.bm-button:active .text {
+  scale: 0.95;
+  transition: all 0.2s;
+}
+.bm-button--disabled:active .text {
+  scale: 1;
+  transition: all 0.2s;
+}
+.bm-button--default {
+  background-image: linear-gradient(145deg, #f4fff3 0%, #efffeb 50%, #f6fff4 100%);
+  color: #7bc173;
+  border: solid 0.2px rgba(46, 123, 13, 0.148);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0px 15px rgba(181, 181, 181, 0.221);
+}
+.bm-button--default:hover {
+  filter: brightness(1.01);
+}
+.bm-button--primary {
+  background-image: linear-gradient(45deg, #b1dda4 0%, #69cc95 50%, #57bb70 100%);
+}
+.bm-button--danger {
+  background-image: linear-gradient(45deg, #f79824 0%, #f2582d 50%, #f56e7c 100%);
+}
+.bm-button--danger:hover {
+  filter: brightness(1.05) saturate(1.5);
+}
+.bm-button--alert {
+  background-image: linear-gradient(135deg, #ffd900 0%, #ffd34e 50%, #e2ed0e 100%);
+}
+.bm-button--link {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-color: transparent;
+  box-shadow: none;
+  color: #7bc173;
+}
+.bm-button--outline::before {
+  content: "";
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  right: 2.5px;
+  bottom: 2.5px;
+  height: inherit;
+  width: inherit;
+  z-index: 1;
+  border-radius: 14px;
+  border: 1.6px solid transparent;
+  background-color: #effff3;
+  transition: all 0.3s;
+}
+.bm-button--alert.bm-button--outline::before {
+  background-color: #fffedb;
+}
+.bm-button--danger.bm-button--outline::before {
+  background-color: #fff1e4;
+}
+.bm-button--outline:hover::before {
+  opacity: 0;
+}
+.bm-button--primary.bm-button--outline .text {
+  color: #6cd498;
+}
+.bm-button--danger.bm-button--outline .text {
+  color: #dc4c24;
+}
+.bm-button--alert.bm-button--outline .text {
+  color: #e9bd0e;
+}
+.bm-button--primary.bm-button--outline:hover .text {
+  color: #ffffff;
+}
+.bm-button--danger.bm-button--outline:hover .text {
+  color: #ffffff;
+}
+.bm-button--alert.bm-button--outline:hover .text {
+  color: #ffffff;
+}
+.bm-button--s {
+  padding: 9px 19px;
+  font-size: 16px;
+  border-radius: 17px;
+}
+.bm-button--m {
+  padding: 12px 25px;
+  font-size: 20px;
+  border-radius: 17px;
+}
+.bm-button--l {
+  padding: 11px 25px;
+  font-size: 30px;
+  border-radius: 17px;
+}
+.bm-button--link {
+  position: relative;
+  overflow: hidden;
+}
+.bm-button--link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #96ca8c;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.bm-button--link:hover::after {
+  transform: translateX(0);
+}
+.bm-button--link:hover .text {
+  color: #ffffff;
+}
+.bm-button--link:visited {
+  color: #9ccea0;
+}
+.bm-button--link.bm-button--disabled {
+  color: #959595;
+  pointer-events: none;
+  -webkit-user-select: none;
+}
+.bm-button--disabled {
+  color: #959595;
+  background-color: #f5f7fa;
+  background-image: none;
+  border-color: #e4e7ed;
+  cursor: default;
+}
+.bm-button--disabled:hover {
+  filter: brightness(0.95);
+  scale: 1;
+  box-shadow: 0 0px 10px rgba(89, 89, 89, 0.192);
+}
+.bm-button--thinFont {
+  font-weight: 100;
+}

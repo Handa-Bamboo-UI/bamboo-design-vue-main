@@ -2,8 +2,8 @@
   "name": "@bamboo-design/components",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "./index.js",
+ 
   "scripts": {
     "build": "vite build"
   },

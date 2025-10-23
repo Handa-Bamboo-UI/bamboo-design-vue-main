@@ -25,7 +25,7 @@ const delPath = async (path: string) => {
       }
     });
 
-    if (path != `${pkgPath}/easyest`) fs.rmdirSync(path);
+    if (path != `${pkgPath}/easyest`) fs.rmSync(path, { recursive: true });
   }
 };
 export default delPath;

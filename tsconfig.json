@@ -7,8 +7,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "moduleResolution": "Node",
-    "lib": ["esnext", "dom"]
-  }
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "moduleResolution": "bundler",
+    "lib": ["esnext", "dom"],
+  },
 }
-
+ 

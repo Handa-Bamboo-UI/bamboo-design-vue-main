@@ -1,4 +1,5 @@
 node_modules/
 play/
-pnpmlock.yaml
-release
+site/
+pnpm-lock.yaml
+package-lock.json
