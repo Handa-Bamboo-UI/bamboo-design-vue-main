@@ -23,6 +23,7 @@ export declare const Button: SFCWithInstall<{
     thinFont?: boolean;
     icon?: boolean;
     iconOnly?: boolean;
+    darkMode?: boolean;
     }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {}, false, {}, {}, GlobalComponents, GlobalDirectives, string, {}, HTMLDivElement, ComponentProvideOptions, {
     P: {};
     B: {};
@@ -40,6 +41,7 @@ export declare const Button: SFCWithInstall<{
     thinFont?: boolean;
     icon?: boolean;
     iconOnly?: boolean;
+    darkMode?: boolean;
     }> & Readonly<{}>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -54,6 +56,7 @@ enterAnimate?: boolean;
 thinFont?: boolean;
 icon?: boolean;
 iconOnly?: boolean;
+darkMode?: boolean;
 }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
