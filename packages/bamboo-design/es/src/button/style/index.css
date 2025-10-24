@@ -27,6 +27,10 @@
   --bm-outline-bg-primary: #effff3;
   --bm-outline-bg-alert: #fffedb;
   --bm-outline-bg-danger: #fff1e4;
+  /* outline hover 样式*/
+  --bm-outline-hover-primary: #cdf7e6;
+  --bm-outline-hover-alert: #fff9c4;
+  --bm-outline-hover-danger: #ffd9b3;
   /* 文字颜色 */
   --bm-text-primary: #6cd498;
   --bm-text-danger: #dc4c24;
@@ -186,13 +190,13 @@
   color: var(--bm-text-alert);
 }
 .bm-button--primary.bm-button--outline:hover .text {
-  color: var(--bm-text-primary);
+  color: var(--bm-text-primary-hover);
 }
 .bm-button--danger.bm-button--outline:hover .text {
-  color: var(--bm-text-danger);
+  color: var(--bm-text-danger-hover);
 }
 .bm-button--alert.bm-button--outline:hover .text {
-  color: var(--bm-text-alert);
+  color: var(--bm-text-alert-hover);
 }
 .bm-button--s {
   padding: 9px 19px;
