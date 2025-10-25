@@ -55,10 +55,14 @@
   --bm-dark-alert-mid: #f2582d;
   --bm-dark-alert-dark: #f56e7c;
 }
+* {
+  transition: all 0.3s;
+}
 .bm-button {
   display: inline-flex;
   line-height: 1;
   white-space: nowrap;
+  justify-content: center;
   cursor: pointer;
   -webkit-appearance: none;
   text-align: center;
@@ -238,6 +242,16 @@
   color: var(--bm-link-hover-text);
   text-decoration: none;
 }
+.bm-button--link:hover .bm-btn-icon {
+  color: var(--bm-link-hover-text);
+  scale: 1.1;
+  transform: translateX(-5px);
+}
+.bm-button--iconOnly:hover .bm-btn-icon {
+  color: var(--bm-link-hover-text);
+  scale: 1.1;
+  transform: translateX(0px);
+}
 .bm-button--link:visited {
   color: var(--bm-btn-link-color);
 }
@@ -285,4 +299,27 @@
 }
 .bm-button--alert.bm-button--darkMode {
   background-image: linear-gradient(45deg, var(--bm-dark-alert-light) 0%, var(--bm-dark-alert-mid) 50%, var(--bm-dark-alert-dark) 100%);
+}
+.bm-btn-icon {
+  position: relative;
+  z-index: 2;
+  left: -5px;
+}
+.bm-button--iconOnly {
+  border-radius: 30px;
+  padding: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.bm-button--iconOnly .bm-btn-icon {
+  left: 0px;
+}
+.bm-button--reverse .bm-btn-icon {
+  left: 3px;
+}
+.bm-button--reverse:hover .bm-btn-icon {
+  transform: translateX(5px);
+}
+.bm-button--block {
+  width: 100%;
 }

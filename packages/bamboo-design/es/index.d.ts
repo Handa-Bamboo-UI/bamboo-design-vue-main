@@ -19,11 +19,14 @@ export declare const Button: SFCWithInstall<{
     size?: string;
     disabled?: boolean;
     href?: string;
+    newWindow?: boolean;
     enterAnimate?: boolean;
     thinFont?: boolean;
-    icon?: boolean;
+    iconType?: string;
     iconOnly?: boolean;
+    reverse?: boolean;
     darkMode?: boolean;
+    block?: boolean;
     }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {}, false, {}, {}, GlobalComponents, GlobalDirectives, string, {}, HTMLDivElement, ComponentProvideOptions, {
     P: {};
     B: {};
@@ -37,11 +40,14 @@ export declare const Button: SFCWithInstall<{
     size?: string;
     disabled?: boolean;
     href?: string;
+    newWindow?: boolean;
     enterAnimate?: boolean;
     thinFont?: boolean;
-    icon?: boolean;
+    iconType?: string;
     iconOnly?: boolean;
+    reverse?: boolean;
     darkMode?: boolean;
+    block?: boolean;
     }> & Readonly<{}>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -52,11 +58,14 @@ outline?: boolean;
 size?: string;
 disabled?: boolean;
 href?: string;
+newWindow?: boolean;
 enterAnimate?: boolean;
 thinFont?: boolean;
-icon?: boolean;
+iconType?: string;
 iconOnly?: boolean;
+reverse?: boolean;
 darkMode?: boolean;
+block?: boolean;
 }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
