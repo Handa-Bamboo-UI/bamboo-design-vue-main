@@ -21,7 +21,7 @@ Clone for local development:
 git clone https://github.com/your-username/bamboo-design-vue.git
 cd bamboo-design-vue
 pnpm install
-pnpm dev
+pnpm vite build
 ```
 
 ---
