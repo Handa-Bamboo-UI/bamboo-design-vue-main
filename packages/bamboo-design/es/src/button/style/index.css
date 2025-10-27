@@ -11,11 +11,12 @@
   --bm-color-alert-dark: #e2ed0e;
   /* 默认背景 */
   --bm-color-default-0: #f4fff3;
-  --bm-color-default-50: #efffeb;
+  --bm-color-default-50: #e2ffd9;
   --bm-color-default-100: #f6fff4;
   /* 默认色 */
   --bm-color-default-text: #7bc173;
   --bm-color-default-dark-text: #fff;
+  --bm-color-default-light-text: #ffffff;
   --bm-color-default-border: rgba(46, 123, 13, 0.148);
   --bm-color-default-shadow: rgba(181, 181, 181, 0.221);
   /* 阴影与光影 */
@@ -44,22 +45,15 @@
   --bm-btn-disabled-border: #dcdcdc;
   /* 边框默认色 */
   --bm-btn-border-color: rgba(0, 0, 0, 0.08);
-  /* 暗色模式 */
-  --bm-dark-primary-light: #39473f;
-  --bm-dark-primary-mid: #325039;
-  --bm-dark-primary-dark: #343d37;
-  --bm-dark-danger-light: #612207;
-  --bm-dark-danger-mid: #6a1d04;
-  --bm-dark-danger-dark: #641805;
-  --bm-dark-alert-light: #f79824;
-  --bm-dark-alert-mid: #f2582d;
-  --bm-dark-alert-dark: #f56e7c;
+  /* loading 背景 */
+  --bm-btn-loading-bg-inside: rgba(244, 255, 243, 0);
 }
 * {
-  transition: all 0.3s;
+  transition: all 0.4s;
 }
 .bm-button {
   display: inline-flex;
+  align-items: center;
   line-height: 1;
   white-space: nowrap;
   justify-content: center;
@@ -170,7 +164,7 @@
   height: inherit;
   width: inherit;
   z-index: 1;
-  border-radius: 14px;
+  border-radius: 11px;
   border: 1.6px solid transparent;
   background-color: var(--bm-outline-bg-primary);
   transition: all 0.3s;
@@ -202,20 +196,21 @@
 .bm-button--alert.bm-button--outline:hover .text {
   color: var(--bm-text-alert-hover);
 }
+/* button size */
 .bm-button--s {
   padding: 9px 19px;
   font-size: 16px;
-  border-radius: 17px;
+  border-radius: 15px;
 }
 .bm-button--m {
-  padding: 12px 25px;
-  font-size: 20px;
-  border-radius: 17px;
+  padding: 10px 22px;
+  font-size: 19px;
+  border-radius: 15px;
 }
 .bm-button--l {
-  padding: 11px 25px;
-  font-size: 30px;
-  border-radius: 17px;
+  padding: 11px 29px;
+  font-size: 21px;
+  border-radius: 15px;
 }
 .bm-button--link {
   position: relative;
@@ -320,6 +315,128 @@
 .bm-button--reverse:hover .bm-btn-icon {
   transform: translateX(5px);
 }
+.bm-button--loading {
+  pointer-events: none;
+  background-size: 400px 100%;
+  filter: saturate(0.72);
+  animation: bm-btn-loading-icon linear 2s infinite reverse;
+}
+.bm-button--loading::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: var(--bm-btn-loading-bg-inside);
+  border-radius: 15px;
+  z-index: 1;
+}
+.bm-button--loading .text {
+  color: var(--bm-color-default-light-text);
+}
+.bm-btn-icon.spinner {
+  animation: bm-btn-loading-spinner 1s infinite reverse;
+}
+.bm-button--outline.bm-button--alert .bm-btn-icon.spinner {
+  color: var(--bm-text-alert);
+}
+.bm-button--outline.bm-button--danger .bm-btn-icon.spinner {
+  color: var(--bm-text-danger);
+}
+.bm-button--outline.bm-button--primary .bm-btn-icon.spinner {
+  color: var(--bm-text-primary);
+}
+.loading-enter-from,
+.loading-leave-to {
+  opacity: 0;
+}
+.loading-enter-active,
+.loading-leave-active {
+  transition: all 0.4s ease-in-out;
+}
+@keyframes bm-btn-loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+@keyframes bm-btn-loading-icon {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.9);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+/* Outer Button Basic*/
 .bm-button--block {
   width: 100%;
+}
+.bm-button--alert.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-alert-mid);
+  color: var(--bm-color-default-light-text);
+}
+.bm-button--danger.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-danger-mid);
+  color: var(--bm-color-default-light-text);
+}
+.bm-button--primary.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-primary-mid);
+  color: var(--bm-color-default-light-text);
+}
+.bm-button--default.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-default-50);
+  color: var(--bm-text-default);
+}
+/*Type Override*/
+.bm-button-bubble--default.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-default-50);
+  color: var(--bm-color-default-text);
+}
+.bm-button-bubble--alert.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-alert-mid);
+  color: var(--bm-color-default-light-text);
+}
+.bm-button-bubble--danger.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-danger-mid);
+  color: var(--bm-color-default-light-text);
+}
+.bm-button-bubble--primary.bm-button--bubble.bm-button::after {
+  background-color: var(--bm-color-primary-mid);
+  color: var(--bm-color-default-light-text);
+}
+/* Bubble Button*/
+.bm-button--bubble.bm-button::after {
+  pointer-events: none;
+  opacity: 0;
+  font-size: 17px;
+  font-weight: bold;
+  content: attr(data-bubble);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  padding: 10px 15px;
+  transform: translate(-50%, 0%);
+  background-color: var(--bm-color-default-50);
+  border-radius: 15px;
+  color: var(--bm-text-default);
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.bm-button--bubble.bm-button:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.bm-button--bubble.bm-button::after {
+  transform: translate(-50%, 150%);
+}
+.bm-button--bubbleReverse.bm-button:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 250%);
 }

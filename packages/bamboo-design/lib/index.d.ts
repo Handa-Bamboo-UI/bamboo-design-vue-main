@@ -27,6 +27,10 @@ export declare const Button: SFCWithInstall<{
     reverse?: boolean;
     darkMode?: boolean;
     block?: boolean;
+    loading?: boolean;
+    bubble?: string;
+    bubbleReverse?: boolean;
+    bubbleType?: string;
     }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {}, false, {}, {}, GlobalComponents, GlobalDirectives, string, {}, HTMLDivElement, ComponentProvideOptions, {
     P: {};
     B: {};
@@ -48,6 +52,10 @@ export declare const Button: SFCWithInstall<{
     reverse?: boolean;
     darkMode?: boolean;
     block?: boolean;
+    loading?: boolean;
+    bubble?: string;
+    bubbleReverse?: boolean;
+    bubbleType?: string;
     }> & Readonly<{}>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -66,6 +74,10 @@ iconOnly?: boolean;
 reverse?: boolean;
 darkMode?: boolean;
 block?: boolean;
+loading?: boolean;
+bubble?: string;
+bubbleReverse?: boolean;
+bubbleType?: string;
 }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
@@ -90,10 +102,30 @@ type?: string;
 type?: string;
 }> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, HTMLDivElement>>;
 
+export declare const Pin: SFCWithInstall_4<DefineComponent<    {
+iconType?: string;
+iconOnly?: boolean;
+up?: boolean;
+left?: boolean;
+right?: boolean;
+bottom?: boolean;
+number?: number;
+}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{
+iconType?: string;
+iconOnly?: boolean;
+up?: boolean;
+left?: boolean;
+right?: boolean;
+bottom?: boolean;
+number?: number;
+}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, HTMLDivElement>>;
+
 declare type SFCWithInstall<T> = T & Plugin_2;
 
 declare type SFCWithInstall_2<T> = T & Plugin_2;
 
 declare type SFCWithInstall_3<T> = T & Plugin_2;
+
+declare type SFCWithInstall_4<T> = T & Plugin_2;
 
 export { }
