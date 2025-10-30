@@ -8,12 +8,11 @@
 </script>
 <template>
     <div>
-        <fa-icon :icon="iconProps.name" />
+        <fa-icon :icon="iconProps.name" size="2x" />
     </div>
 </template>
 <script lang="ts" setup>
-import "./style/index.less";
-import { computed } from "vue";
+ import "./style/index.less"
 type IconProps = {
     name: string;
 };

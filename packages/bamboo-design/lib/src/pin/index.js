@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const i=require("./pin.vue.js"),r=require("../button/index.js"),s=e=>(e.install=t=>{const u=e.name;t.component(u,e),t.component("bm-button",r.Button)},e),n=s(i.default);exports.Pin=n;exports.default=n;

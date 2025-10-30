@@ -91,10 +91,12 @@ declare const _default: {
 export default _default;
 
 export declare const Icon: SFCWithInstall_3<DefineComponent<    {
-name: string;
+type?: string;
+size?: string;
 }, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{
-name: string;
-}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, HTMLDivElement>>;
+type?: string;
+size?: string;
+}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, any>>;
 
 export declare const Input: SFCWithInstall_2<DefineComponent<    {
 type?: string;
@@ -102,7 +104,45 @@ type?: string;
 type?: string;
 }> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, HTMLDivElement>>;
 
-export declare const Pin: SFCWithInstall_4<DefineComponent<    {
+export declare const Pin: SFCWithInstall_4<{
+    new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly<{
+    iconType?: string;
+    iconOnly?: boolean;
+    up?: boolean;
+    left?: boolean;
+    right?: boolean;
+    bottom?: boolean;
+    number?: number;
+    type?: string;
+    bubble?: boolean;
+    bubbleReverse?: boolean;
+    bubbleType?: string;
+    description?: string;
+    }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {}, false, {}, {}, GlobalComponents, GlobalDirectives, string, {}, HTMLDivElement, ComponentProvideOptions, {
+    P: {};
+    B: {};
+    D: {};
+    C: {};
+    M: {};
+    Defaults: {};
+    }, Readonly<{
+    iconType?: string;
+    iconOnly?: boolean;
+    up?: boolean;
+    left?: boolean;
+    right?: boolean;
+    bottom?: boolean;
+    number?: number;
+    type?: string;
+    bubble?: boolean;
+    bubbleReverse?: boolean;
+    bubbleType?: string;
+    description?: string;
+    }> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & ComponentOptionsBase<Readonly<{
 iconType?: string;
 iconOnly?: boolean;
 up?: boolean;
@@ -110,15 +150,66 @@ left?: boolean;
 right?: boolean;
 bottom?: boolean;
 number?: number;
-}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<{
-iconType?: string;
-iconOnly?: boolean;
+type?: string;
+bubble?: boolean;
+bubbleReverse?: boolean;
+bubbleType?: string;
+description?: string;
+}> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {}): any;
+    };
+})>;
+
+export declare const PinGroup: SFCWithInstall_5<{
+    new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly<{
+    direction?: "horizontal" | "vertical";
+    up?: boolean;
+    bottom?: boolean;
+    left?: boolean;
+    right?: boolean;
+    gap?: string;
+    sleep?: boolean;
+    wakeFor?: string;
+    wakeDirection?: string;
+    }> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {}, false, {}, {}, GlobalComponents, GlobalDirectives, string, {}, HTMLDivElement, ComponentProvideOptions, {
+    P: {};
+    B: {};
+    D: {};
+    C: {};
+    M: {};
+    Defaults: {};
+    }, Readonly<{
+    direction?: "horizontal" | "vertical";
+    up?: boolean;
+    bottom?: boolean;
+    left?: boolean;
+    right?: boolean;
+    gap?: string;
+    sleep?: boolean;
+    wakeFor?: string;
+    wakeDirection?: string;
+    }> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & ComponentOptionsBase<Readonly<{
+direction?: "horizontal" | "vertical";
 up?: boolean;
+bottom?: boolean;
 left?: boolean;
 right?: boolean;
-bottom?: boolean;
-number?: number;
-}> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, false, {}, HTMLDivElement>>;
+gap?: string;
+sleep?: boolean;
+wakeFor?: string;
+wakeDirection?: string;
+}> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {}): any;
+    };
+})>;
+
+export declare type PinProps = InstanceType<typeof Pin>;
 
 declare type SFCWithInstall<T> = T & Plugin_2;
 
@@ -127,5 +218,7 @@ declare type SFCWithInstall_2<T> = T & Plugin_2;
 declare type SFCWithInstall_3<T> = T & Plugin_2;
 
 declare type SFCWithInstall_4<T> = T & Plugin_2;
+
+declare type SFCWithInstall_5<T> = T & Plugin_2;
 
 export { }

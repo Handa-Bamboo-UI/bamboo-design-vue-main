@@ -39,7 +39,7 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "bm-input",
-});
+}); 
 </script>
 <script lang="ts" setup>
 import "./style/index.less";

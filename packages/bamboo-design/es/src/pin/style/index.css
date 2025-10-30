@@ -1,0 +1,21 @@
+.bm-pin {
+  position: fixed;
+  padding: 10px;
+  z-index: 1000;
+}
+.bm-pin-default {
+  right: 0;
+  bottom: 0;
+}
+.bm-pin-right {
+  right: 0;
+}
+.bm-pin-bottom {
+  bottom: 0;
+}
+.bm-pin-left {
+  left: 0;
+}
+.bm-pin-top {
+  top: 0;
+}

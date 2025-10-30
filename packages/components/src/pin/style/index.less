@@ -1,0 +1,23 @@
+:root {
+    --bm-pin-default-width: 30px;
+}
+.bm-pin {
+    position: fixed;
+    z-index: 1000;
+}
+.bm-pin-default {
+    bottom: calc(var(--bm-pin-default-width, 10px)+attr(data-number)*var(--bm-pin-default-width, 10px));
+    right: calc(var(--bm-pin-default-width, 10px)+attr(data-number)*var(--bm-pin-default-width, 10px));
+}
+.bm-pin-up {
+    top: calc(var(--bm-pin-default-width, 10px)+attr(data-number)*var(--bm-pin-default-width, 10px));
+}
+.bm-pin-left {
+    left: calc(var(--bm-pin-default-width, 10px)+attr(data-number)*var(--bm-pin-default-width, 10px));
+}
+.bm-pin-right {
+    right: calc(var(--bm-pin-default-width, 10px)+attr(data-number)*var(--bm-pin-default-width, 10px));
+}
+.bm-pin-bottom {
+    bottom: calc(var(--bm-pin-default-width, 10px)+attr(data-number)*var(--bm-pin-default-width, 10px));
+}

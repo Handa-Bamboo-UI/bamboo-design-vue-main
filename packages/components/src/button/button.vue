@@ -1,11 +1,74 @@
 <template>
-  <div>
-    <a v-if="buttonProps.type === 'link'" :href="buttonProps.href" class="bm-button" :class="buttonStyle">  <div class="text"><slot></slot></div>
-    </a>
-    <button v-else class="bm-button" :class="buttonStyle"> 
-        <div v-if="buttonProps.icon || buttonProps.iconOnly"> </div>
-       <div v-if="!buttonProps.iconOnly" class="text"><slot></slot>
+  <div :class="buttonOuterStyle">
+    <div
+      @click="handleClick"
+      v-if="buttonProps.type === 'link'"
+      :href="buttonProps.href"
+      class="bm-button custom-link"
+      :class="buttonStyle"
+    >
+      <fa-icon
+        class="bm-btn-icon"
+        :icon="buttonProps.iconType || 'fa-check'"
+        size="1x"
+        v-if="
+          (buttonProps.iconType || buttonProps.iconOnly) && !buttonProps.reverse
+        "
+      >
+      </fa-icon>
+      <div v-if="!buttonProps.iconOnly" class="text">
+        <slot>默认按钮</slot>
       </div>
+      <fa-icon
+        class="bm-btn-icon"
+        :icon="buttonProps.iconType || 'fa-check'"
+        size="1x"
+        v-if="
+          (buttonProps.iconType || buttonProps.iconOnly) && buttonProps.reverse
+        "
+      >
+      </fa-icon>
+    </div>
+    <button
+      v-else
+      class="bm-button"
+      :class="buttonStyle"
+      :data-bubble="buttonProps.bubble"
+    >
+      <Transition name="loading">
+        <fa-icon
+          class="bm-btn-icon spinner"
+          icon="fa-refresh"
+          size="1x"
+          v-if="buttonProps.loading"
+        >
+        </fa-icon>
+      </Transition>
+      <fa-icon
+        class="bm-btn-icon"
+        :icon="buttonProps.iconType || 'fa-check'"
+        size="1x"
+        v-if="
+          (buttonProps.iconType || buttonProps.iconOnly) &&
+          !buttonProps.reverse &&
+          !buttonProps.loading
+        "
+      >
+      </fa-icon>
+      <div v-if="!buttonProps.iconOnly" class="text">
+        <slot>默认按钮</slot>
+      </div>
+      <fa-icon
+        class="bm-btn-icon"
+        :icon="buttonProps.iconType || 'fa-check'"
+        size="1x"
+        v-if="
+          (buttonProps.iconType || buttonProps.iconOnly) &&
+          buttonProps.reverse &&
+          !buttonProps.loading
+        "
+      >
+      </fa-icon>
     </button>
   </div>
 </template>
@@ -24,21 +87,50 @@ type ButtonProps = {
   size?: string;
   disabled?: boolean;
   href?: string;
+  newWindow?: boolean;
   enterAnimate?: boolean;
   thinFont?: boolean;
-  icon?: boolean;
+  iconType?: string;
   iconOnly?: boolean;
+  reverse?: boolean;
+  darkMode?: boolean;
+  block?: boolean;
+  loading?: boolean;
+  bubble?: string;
+  bubbleReverse?: boolean;
+  bubbleType?: string;
 };
 const buttonProps = defineProps<ButtonProps>();
 const buttonStyle = computed(() => {
   return {
-    [`bm-button--${buttonProps.type || "default"}`]: buttonProps.type || "primary",
+    [`bm-button--${buttonProps.type || "default"}`]:
+      buttonProps.type || "primary",
     [`bm-button--${buttonProps.size || "m"}`]: buttonProps.size || "m",
     [`bm-button--outline`]: buttonProps.outline || false,
     [`bm-button--disabled`]: buttonProps.disabled || false,
+    [`bm-button--block`]: buttonProps.block || false,
     [`bm-button--enterAnimate`]: buttonProps.enterAnimate || false,
     [`bm-button--thinFont`]: buttonProps.thinFont || false,
-    [`bm-button--icon`]: buttonProps.icon || false,
+    [`bm-button--icon`]: buttonProps.iconType || false,
+    [`bm-button--darkMode`]: buttonProps.darkMode || false,
+    [`bm-button--iconOnly`]: buttonProps.iconOnly || false,
+    [`bm-button--reverse`]: buttonProps.reverse || false,
+    [`bm-button--loading`]:
+      buttonProps.type == "link" ? false : buttonProps.loading,
+    [`bm-button--bubble`]: buttonProps.type == "link" ? false : buttonProps.bubble || false,
+    [`bm-button--bubbleReverse`]: buttonProps.type == "link" ? false : buttonProps.bubbleReverse || false,
+    [`bm-button-bubble--${buttonProps.bubbleType || "none"}`]: buttonProps.type == "link" ? false : buttonProps.bubble || false,
   };
 });
+const buttonOuterStyle = computed(() => {
+  return {
+    [`bm-button--block`]: buttonProps.block || false,
+  };
+});
+const handleClick = (e: Event) => {
+  if (buttonProps.href) {
+    e.preventDefault();
+    window.open(buttonProps.href, buttonProps.newWindow ? "_blank" : "_self");
+  }
+};
 </script>

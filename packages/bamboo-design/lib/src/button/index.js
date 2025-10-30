@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const o=require("./button.vue.js"),r=require("../Icon/index.js"),s=t=>(t.install=e=>{const n=t.name;e.component(n,t),e.component("bm-icon",r.Icon)},t),u=s(o.default);exports.Button=u;exports.default=u;

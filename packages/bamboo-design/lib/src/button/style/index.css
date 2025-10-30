@@ -45,6 +45,9 @@
   --bm-btn-disabled-border: #dcdcdc;
   /* 边框默认色 */
   --bm-btn-border-color: rgba(0, 0, 0, 0.08);
+  /* 图标默认色 */
+  --bm-icon-hover-color: #fff;
+  --bm-icon-default-color: #7BC173;
   /* loading 背景 */
   --bm-btn-loading-bg-inside: rgba(244, 255, 243, 0);
 }
@@ -243,7 +246,12 @@
   transform: translateX(-5px);
 }
 .bm-button--iconOnly:hover .bm-btn-icon {
-  color: var(--bm-link-hover-text);
+  color: var(--bm-icon-hover-color);
+  scale: 1.1;
+  transform: translateX(0px);
+}
+.bm-button--default.bm-button--iconOnly:hover .bm-btn-icon {
+  color: var(--bm-icon-default-color);
   scale: 1.1;
   transform: translateX(0px);
 }

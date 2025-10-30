@@ -2,13 +2,13 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import DefineOptions from "unplugin-vue-define-options/vite";
-
+import path from "path";
 
 export default defineConfig({
   build: {
     outDir: "es",
     rollupOptions: {
-      external: ["vue",/\.less/,'@bamboo-design/utils'],
+      external: ["vue", /\.less/, "@bamboo-design/utils"],
       input: ["index.ts"],
       output: [
         {
@@ -16,14 +16,16 @@ export default defineConfig({
           entryFileNames: "[name].mjs",
           preserveModules: true,
           exports: "named",
-          dir: "../bamboo-design/es",
+          dir: "../bamboo-design/es/",
+          preserveModulesRoot: "./",
         },
         {
           format: "cjs",
           entryFileNames: "[name].js",
           preserveModules: true,
+          preserveModulesRoot: "./",
           exports: "named",
-          dir: "../bamboo-design/lib",
+          dir: "../bamboo-design/lib/",
         },
       ],
     },
@@ -31,28 +33,30 @@ export default defineConfig({
       entry: "./index.ts",
     },
   },
-    plugins: [
+  plugins: [
     vue(),
     dts({
       entryRoot: "./",
       outDir: ["../bamboo-design/es/", "../bamboo-design/lib/"],
-      exclude:["**/vite.config.ts","./script/"],
+      exclude: ["**/vite.config.ts", "./script/"],
       tsconfigPath: "../../tsconfig.json",
+      rollupTypes: true 
     }),
     {
-      name:'style',
-      generateBundle(config,bundle){
-        const keys =Object.keys(bundle);
+      name: "style",
+      generateBundle(config, bundle) {
+        const keys = Object.keys(bundle);
 
         for (const key of keys) {
-         const bundler : any=bundle[key as any];
-         this.emitFile({
-          type:'asset',
-          fileName:key,
-          source:bundler.code.replace(/\.less/,'.css')
-         })
-      }
+          const bundler: any = bundle[key as any];
+          this.emitFile({
+            type: "asset",
+            fileName: key,
+            source: bundler.code.replace(/\.less/, ".css").replace(/\.\.\/\.\.\/packages\/components\/src\/.*?\/style/, "./style").replace(/require\(\s*\".\/style\/index\.css\"\s*\);/g, ""),
+          });
+        }
+      },
     }
-  }
   ],
+  
 });
