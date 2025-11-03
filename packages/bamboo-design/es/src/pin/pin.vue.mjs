@@ -1,4 +1,4 @@
-import { defineComponent as t, computed as p, resolveComponent as i, createElementBlock as r, openBlock as u, normalizeClass as a, createVNode as c, withCtx as s, renderSlot as m, createTextVNode as y, toDisplayString as f } from "vue";
+import { defineComponent as t, computed as p, resolveComponent as i, createElementBlock as a, openBlock as r, normalizeClass as u, createVNode as m, withCtx as s, renderSlot as y, createTextVNode as c, toDisplayString as f } from "vue";
 import "./style/index.css";
 const d = t({
   name: "bm-pin"
@@ -16,36 +16,40 @@ const d = t({
     bubble: { type: Boolean },
     bubbleReverse: { type: Boolean },
     bubbleType: {},
-    description: {}
+    description: {},
+    menu: { type: Boolean },
+    enterAnimate: { type: Boolean }
   },
-  setup(o) {
-    const e = o, n = p(() => ({
+  setup(n) {
+    const e = n, o = p(() => ({
       "bm-pin-up": e.up,
       "bm-pin-left": e.left,
       "bm-pin-right": e.right,
       "bm-pin-bottom": e.bottom,
       "bm-pin-default": !(e.up || e.left || e.right || e.bottom)
     }));
-    return (b, _) => {
+    return (b, B) => {
       const l = i("bm-button");
-      return u(), r("div", {
-        class: a(["bm-pin", n.value])
+      return r(), a("div", {
+        class: u(["bm-pin", o.value])
       }, [
-        c(l, {
+        m(l, {
+          enterAnimate: e.enterAnimate || !1,
           type: e.type || "default",
           iconType: e.iconType,
+          menu: e.menu || !1,
           iconOnly: e.iconOnly || !1,
           bubble: e.bubble,
           bubbleReverse: e.bubbleReverse || !1,
           bubbleType: e.bubbleType || "none"
         }, {
           default: s(() => [
-            m(b.$slots, "default", {}, () => [
-              y(f(e.description || "图钉"), 1)
+            y(b.$slots, "default", {}, () => [
+              c(f(e.description || "图钉"), 1)
             ])
           ]),
           _: 3
-        }, 8, ["type", "iconType", "iconOnly", "bubble", "bubbleReverse", "bubbleType"])
+        }, 8, ["enterAnimate", "type", "iconType", "menu", "iconOnly", "bubble", "bubbleReverse", "bubbleType"])
       ], 2);
     };
   }

@@ -9,6 +9,16 @@
   --bm-color-alert-light: #ffd900;
   --bm-color-alert-mid: #ffd34e;
   --bm-color-alert-dark: #e2ed0e;
+  /*主题色变体*/
+  --bm-color-primary-light-light: #cdf0c7;
+  --bm-color-primary-light-mid: #caf3bc;
+  --bm-color-primary-light-dark: #d5f7dd;
+  --bm-color-alert-light-light: #fff7cc;
+  --bm-color-alert-light-mid: rgba(255, 247, 130, 0.637);
+  --bm-color-alert-light-dark: #fff9c7;
+  --bm-color-danger-light-light: #fff1e4;
+  --bm-color-danger-light-mid: #ffebd2;
+  --bm-color-danger-light-dark: #ffe5ba;
   /* 默认背景 */
   --bm-color-default-0: #f4fff3;
   --bm-color-default-50: #e2ffd9;
@@ -19,11 +29,17 @@
   --bm-color-default-light-text: #ffffff;
   --bm-color-default-border: rgba(46, 123, 13, 0.148);
   --bm-color-default-shadow: rgba(181, 181, 181, 0.221);
+  /* 边框默认色 */
+  --bm-border-color: rgba(0, 0, 0, 0.08);
   /* 阴影与光影 */
   --bm-shadow-normal: 0 0px 10px rgba(89, 89, 89, 0.08);
   --bm-shadow-hover: 0 0px 10px rgba(89, 89, 89, 0);
   --bm-shadow-disabled: 0 0px 10px rgba(89, 89, 89, 0.192);
   --bm-shadow-alert-text: rgba(89, 89, 89, 0.176);
+  /* 圆角 */
+  --bm-default-radius: 15px;
+  /* 字体大小 */
+  --bm-font-size: 19px;
   /* outline 内背景 */
   --bm-outline-bg-primary: #effff3;
   --bm-outline-bg-alert: #fffedb;
@@ -34,8 +50,11 @@
   --bm-outline-hover-danger: #ffd9b3;
   /* 文字颜色 */
   --bm-text-primary: #6cd498;
+  --bm-text-primary-dark: #57bb70;
   --bm-text-danger: #dc4c24;
+  --bm-text-danger-dark: #a14c34;
   --bm-text-alert: #e9bd0e;
+  --bm-text-alert-dark: #b89831;
   /* 链接 */
   --bm-link-hover-bg: #96ca8c;
   --bm-link-hover-text: #fff;
@@ -43,13 +62,23 @@
   --bm-btn-disabled-color: #a8a8a8;
   --bm-btn-disabled-bg: #f5f5f5;
   --bm-btn-disabled-border: #dcdcdc;
-  /* 边框默认色 */
-  --bm-btn-border-color: rgba(0, 0, 0, 0.08);
   /* 图标默认色 */
   --bm-icon-hover-color: #fff;
   --bm-icon-default-color: #7BC173;
+  /* 输入框 */
+  --bm-input-hover-border-color: rgba(105, 199, 65, 0.781);
+  --bm-input-color-focus-text: rgba(31, 68, 15, 0.781);
+  --bm-input-bg: #fdfffd;
+  --bm-input-hover-bg: #f5fff4;
+  --bm-box-shadow: 0 0px 12px rgba(125, 179, 111, 0.151);
+  --bm-box-shadow-hover: 0 0px 12px rgba(125, 179, 111, 0.288);
+  --bm-box-shadow-primary: 0 0px 12px rgba(100, 182, 79, 0.429);
+  --bm-box-shadow-danger: 0 0px 12px rgba(242, 88, 45, 0.429);
+  --bm-box-shadow-alert: 0 0px 12px rgba(255, 211, 78, 0.429);
   /* loading 背景 */
   --bm-btn-loading-bg-inside: rgba(244, 255, 243, 0);
+  /* 选中 */
+  --bm-default-select-color: rgba(108, 212, 152, 0.3);
 }
 * {
   transition: all 0.4s;
@@ -70,9 +99,8 @@
   font-weight: 500;
   padding: 12px 20px;
   font-size: 14px;
-  border-radius: 4px;
   box-shadow: 0 0px 10px rgba(89, 89, 89, 0.08);
-  border: solid 0.2px var(--bm-btn-border-color);
+  border: solid 0.2px var(--bm-border-color);
   position: relative;
   font-weight: 600;
   color: var(--bm-color-default-dark-text);
@@ -87,7 +115,7 @@
   scale: 0.95;
 }
 .bm-button--enterAnimate {
-  animation: button-appear 0.5s ease-in-out;
+  animation: button-appear 0.5s cubic-bezier(0.38, -0.1, 0.58, 1.41);
 }
 @keyframes button-appear {
   0% {
@@ -203,17 +231,17 @@
 .bm-button--s {
   padding: 9px 19px;
   font-size: 16px;
-  border-radius: 15px;
+  border-radius: var(--bm-default-radius);
 }
 .bm-button--m {
   padding: 10px 22px;
-  font-size: 19px;
-  border-radius: 15px;
+  font-size: var(--bm-font-size);
+  border-radius: var(--bm-default-radius);
 }
 .bm-button--l {
   padding: 11px 29px;
   font-size: 21px;
-  border-radius: 15px;
+  border-radius: var(--bm-default-radius);
 }
 .bm-button--link {
   position: relative;
@@ -246,7 +274,6 @@
   transform: translateX(-5px);
 }
 .bm-button--iconOnly:hover .bm-btn-icon {
-  color: var(--bm-icon-hover-color);
   scale: 1.1;
   transform: translateX(0px);
 }
