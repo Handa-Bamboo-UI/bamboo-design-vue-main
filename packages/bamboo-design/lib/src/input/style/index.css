@@ -3,12 +3,14 @@
 }
 .input-container {
   width: 100%;
-  height: 55px;
 }
 .bm-input {
   display: inline-flex;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 40px;
   background-image: linear-gradient(45deg, var(--bm-color-default-0) 0%, var(--bm-color-default-50) 90%, var(--bm-color-default-100) 100%);
   border: 1px solid var(--bm-border-color);
   border-width: 1px;
@@ -27,13 +29,16 @@
 }
 /*size*/
 .bm-input--s {
-  height: 40px;
+  height: 30px;
 }
 .bm-input--m {
-  height: 55px;
+  height: 40px;
 }
 .bm-input--l {
-  height: 70px;
+  height: 50px;
+}
+.bm-input--l .bm-input__inner {
+  font-size: var(--bm-font-size-lg);
 }
 /*icon*/
 .bm-input__icon {
@@ -58,6 +63,7 @@
 .bm-input__inner {
   caret-color: var(--bm-input-text-color);
   width: 100%;
+  height: 100%;
   font-weight: bold;
   padding: 13px;
   padding-top: 10px;

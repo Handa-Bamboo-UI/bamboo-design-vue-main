@@ -1,6 +1,6 @@
 import { defineComponent as d, ref as s, computed as k, onMounted as x, resolveComponent as C, createElementBlock as p, openBlock as a, createCommentVNode as i, normalizeClass as B, createBlock as l, createElementVNode as w } from "vue";
 import "./style/index.css";
-const T = { class: "input-container" }, z = ["type", "clearable", "value", "placeholder", "maxLength", "minLength", "pattern", "autoComplete"], R = d({
+const z = { class: "input-container" }, T = ["type", "clearable", "value", "placeholder", "maxLength", "minLength", "pattern", "autoComplete", "size"], R = d({
   name: "bm-input"
 }), E = /* @__PURE__ */ d({
   ...R,
@@ -68,7 +68,7 @@ const T = { class: "input-container" }, z = ["type", "clearable", "value", "plac
       });
     }), (r, A) => {
       const o = C("bm-icon");
-      return a(), p("div", T, [
+      return a(), p("div", z, [
         e.variant === "text" || !e.variant || e.variant === "password" ? (a(), p("div", {
           key: 0,
           class: B(["bm-input", _.value]),
@@ -98,11 +98,12 @@ const T = { class: "input-container" }, z = ["type", "clearable", "value", "plac
             pattern: e.inputRule,
             autoComplete: e.autoComplete,
             class: "bm-input__inner",
+            size: e.size || "m",
             onBlur: y,
             onFocus: f,
             onInput: L,
             onChange: g
-          }, null, 40, z),
+          }, null, 40, T),
           e.iconType && e.reverse && !e.clearable && e.variant !== "password" ? (a(), l(o, {
             key: 2,
             icon: e.iconType,

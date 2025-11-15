@@ -1,21 +1,23 @@
-import { defineComponent as e, resolveComponent as c, createBlock as i, openBlock as s } from "vue";
+import { defineComponent as e, resolveComponent as t, createBlock as r, openBlock as s, normalizeStyle as i } from "vue";
 import "./style/index.css";
-const p = e({
+const l = e({
   name: "bm-icon"
 }), f = /* @__PURE__ */ e({
-  ...p,
+  ...l,
   props: {
     type: {},
-    size: {}
+    size: {},
+    color: {}
   },
   setup(n) {
     const o = n;
-    return (r, _) => {
-      const t = c("fa-icon");
-      return s(), i(t, {
+    return (p, _) => {
+      const c = t("fa-icon");
+      return s(), r(c, {
         icon: o.type,
-        size: o.size || "2x"
-      }, null, 8, ["icon", "size"]);
+        size: o.size || "2x",
+        style: i(o.color ? `color:${o.color};` : "")
+      }, null, 8, ["icon", "size", "style"]);
     };
   }
 });
