@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const l=require("./pinGroup.vue.js"),s=e=>(e.install=u=>{const r=e.name;u.component(r,e)},e),t=s(l.default);exports.PinGroup=t;exports.default=t;

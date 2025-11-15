@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const a=require("./cheeselayout.vue.js"),l=e=>(e.install=u=>{const s=e.name;u.component(s,e)},e),t=l(a.default);exports.CheeseLayout=t;exports.default=t;

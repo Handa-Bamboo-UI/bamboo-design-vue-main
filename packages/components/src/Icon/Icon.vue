@@ -1,21 +1,19 @@
+<template>
+        <fa-icon :icon="iconProps.type" :size="iconProps.size || '2x' " :style="iconProps.color?`color:${iconProps.color};`:''" />
+</template>
 <script lang="ts">
  import { defineComponent } from 'vue'
-  
-
  export default defineComponent({
     name: 'bm-icon',
  })
 </script>
-<template>
-    <div>
-        <fa-icon :icon="iconProps.name" size="2x" />
-    </div>
-</template>
 <script lang="ts" setup>
  import "./style/index.less"
 type IconProps = {
-    name: string;
+    type?: string;
+    size?: string;
+    color?: string;
 };
 const iconProps = defineProps<IconProps>();
  
-</script>`
+</script>

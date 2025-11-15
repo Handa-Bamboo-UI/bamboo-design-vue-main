@@ -1,8 +1,264 @@
-  .bm-input--primary {
+*{
+    transition: all 0.5s ease-in-out;
+ 
+}
+.input-container{
+    width: 100%;
+}
+.bm-input {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
     background-image: linear-gradient(
-      45deg,
-      rgb(247, 152, 36) 0%,
-      rgb(242, 88, 45) 50%,
-      rgb(245, 110, 124) 100%,
+    45deg,
+    var(--bm-color-default-0) 0%,
+    var(--bm-color-default-50) 90%,
+    var(--bm-color-default-100) 100%
+  );
+    border: 1px solid var(--bm-border-color);
+    border-width: 1px;
+    opacity: 0.8;
+    padding: 0px;
+    border-radius: var(--bm-default-radius);
+    overflow: hidden;
+    user-select: text;
+    box-shadow: var(--bm-box-shadow);
+    &:hover{
+        scale: 1.01;
+        box-shadow: var(--bm-box-shadow-hover);
+    }
+}
+/*size*/
+.bm-input--s{
+    height: 30px;
+}
+.bm-input--m{
+    height: 40px;
+}
+.bm-input--l{
+    height: 50px;
+}
+.bm-input--l .bm-input__inner{
+    font-size: var(--bm-font-size-lg);
+}
+
+/*icon*/
+.bm-input__icon{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    top: 9px;
+    left: 8px;
+    scale: 0.8;
+    color: var(--bm-icon-default-color);
+
+}
+.bm-input__icon--reverse{
+    left: auto;
+    right: 8px;
+}
+.bm-input__icon--clear{
+    cursor: pointer;
+        &:hover{
+        scale: 1.01;
+    }
+}
+.bm-input__inner {
+    caret-color: var(--bm-input-text-color);
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    padding:13px;
+    padding-top: 10px;
+    font-size: var(--bm-font-size);
+    border-width:0px;
+    color: var(--bm-color-default-text);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    &:focus{
+        filter: brightness(0.8);
+    }
+    transition: all 0.5s ease-in-out;
+}
+::selection{
+    background-color: var(--bm-default-select-color)
+}
+::placeholder{
+    line-height: normal;
+    color: var(--bm-input-placeholder-color);
+    opacity: 0.9;
+}
+/* 禁用 */
+.bm-input--disabled{
+    background-color: var(--bm-btn-disabled-bg);
+    border-color: var(--bm-btn-disabled-border);
+    color: var(--bm-btn-disabled-color);
+    user-select: none;
+    pointer-events: none;
+}
+.bm-input--disabled .bm-input__inner{
+    color: var(--bm-btn-disabled-color);
+}
+/* 等级 */
+.bm-input--primary{
+    border-color: var(--bm-color-primary-mid);
+    background-image: linear-gradient(
+        45deg,
+        var(--bm-color-primary-light-light) 0%,
+        var(--bm-color-primary-light-mid) 50%,
+        var(--bm-color-primary-light-dark) 100%
     );
-  }
+    &:hover{
+        box-shadow: var(--bm-box-shadow-primary);
+    }
+}
+.bm-input--danger{
+    border-color: var(--bm-color-danger-mid);
+      background-image: linear-gradient(
+        65deg,
+        var(--bm-color-danger-light-light) 0%,
+        var(--bm-color-danger-light-mid) 50%,
+        var(--bm-color-danger-light-dark) 100%
+    );
+    &:hover{
+        box-shadow: var(--bm-box-shadow-danger);
+    }
+}
+.bm-input--alert{
+    border-color: var(--bm-color-alert-mid);
+    background-image: linear-gradient(
+        35deg,
+        var(--bm-color-alert-light-light) 0%,
+        var(--bm-color-alert-light-mid) 50%,
+        var(--bm-color-alert-light-dark) 100%
+    );
+    &:hover{
+        box-shadow: var(--bm-box-shadow-alert);
+    }
+}
+.bm-input--primary .bm-input__icon{
+    color: var(--bm-text-primary);
+}
+.bm-input--danger .bm-input__icon{
+    color: var(--bm-text-danger);
+}
+.bm-input--alert .bm-input__icon{
+    color: var(--bm-text-alert);
+}
+
+
+.bm-input--primary ::placeholder{
+    color: var( --bm-text-primary);
+}
+.bm-input--danger ::placeholder{
+    color: var(--bm-text-danger);
+}
+.bm-input--alert ::placeholder{
+    color: var(--bm-text-alert);
+}
+
+.bm-input--danger .bm-input__inner{
+    color: var(--bm-text-danger-dark);
+}
+.bm-input--alert .bm-input__inner{
+    color: var(--bm-text-alert-dark);
+}
+/* 焦点 */
+.bm-input--focus{
+    border-color: var(--bm-input-hover-border-color);
+    border-width: 2.5px;
+    scale: 1.01;
+    border-radius: 15px;    
+    background-color: var(--bm-input-hover-bg);
+    box-shadow: var(--bm-box-shadow-default);
+}
+.bm-input--primary.bm-input--focus{
+    border-color: var(--bm-color-primary-light);
+    box-shadow: var(--bm-box-shadow-primary);
+    &hover{
+        border-color: var(--bm-color-primary-light);
+    }
+}
+.bm-input--danger.bm-input--focus{
+    border-color: var(--bm-color-danger-mid);
+    box-shadow: var(--bm-box-shadow-danger);
+    &hover{
+        border-color: var(--bm-color-danger-mid);
+    }
+}
+.bm-input--alert.bm-input--focus{
+    border-color: var(--bm-color-alert-mid);
+    box-shadow: var(--bm-box-shadow-alert); 
+    &hover{
+        border-color: var(--bm-color-alert-mid);
+    }
+}
+.bm-input--primary.bm-input--focus .bm-input__inner{
+    color: var(--bm-text-primary);
+}
+.bm-input--danger.bm-input--focus .bm-input__inner{
+    color: var(--bm-text-danger);
+}
+.bm-input--alert.bm-input--focus .bm-input__inner{
+    color: var(--bm-text-alert-dark);
+}
+/* 清除 */
+.bm-input--clearAnimate{
+    animation: clearAnimate 0.5s ease-in-out;
+}
+@keyframes clearAnimate {
+    0%{
+        opacity: 1;
+        width: 100%;
+        transform: translateX(0);
+    }
+    50%{
+        opacity: 0;
+        width: 50%;
+        transform: translateX(25%);
+    }
+    100%{
+        opacity: 1;
+        width: 100%;
+        transform: translateX(0);
+    }
+}
+
+input[type="password"]::-ms-reveal {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-password-toggle-button {
+  display: none !important;
+  -webkit-appearance: none !important; 
+}
+
+input[type="password"]::-moz-native-spinner {
+  display: none !important;
+}
+
+input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; 
+  outline: none;
+}
+/* 最大长度 */
+.bm-input__max-length{
+    position: absolute;
+    top: 47%;
+    right: 30px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: var(--bm-input-placeholder-color);
+    opacity: 0.2;
+    font-weight: bold;
+}

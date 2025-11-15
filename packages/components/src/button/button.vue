@@ -1,5 +1,6 @@
 <template>
   <div :class="buttonOuterStyle">
+    <!--custom link-->
     <div
       @click="handleClick"
       v-if="buttonProps.type === 'link'"
@@ -7,28 +8,29 @@
       class="bm-button custom-link"
       :class="buttonStyle"
     >
-      <fa-icon
+      <bm-icon
         class="bm-btn-icon"
-        :icon="buttonProps.iconType || 'fa-check'"
+        :type="buttonProps.iconType || 'fa-check'"
         size="1x"
         v-if="
           (buttonProps.iconType || buttonProps.iconOnly) && !buttonProps.reverse
         "
       >
-      </fa-icon>
+      </bm-icon>
       <div v-if="!buttonProps.iconOnly" class="text">
         <slot>默认按钮</slot>
       </div>
-      <fa-icon
+      <bm-icon
         class="bm-btn-icon"
-        :icon="buttonProps.iconType || 'fa-check'"
+        :type="buttonProps.iconType || 'fa-check'"
         size="1x"
         v-if="
           (buttonProps.iconType || buttonProps.iconOnly) && buttonProps.reverse
         "
       >
-      </fa-icon>
+      </bm-icon>
     </div>
+    <!--default button-->
     <button
       v-else
       class="bm-button"
@@ -36,17 +38,17 @@
       :data-bubble="buttonProps.bubble"
     >
       <Transition name="loading">
-        <fa-icon
+        <bm-icon
           class="bm-btn-icon spinner"
-          icon="fa-refresh"
+          type="fa-refresh"
           size="1x"
           v-if="buttonProps.loading"
         >
-        </fa-icon>
+        </bm-icon>
       </Transition>
-      <fa-icon
+      <bm-icon
         class="bm-btn-icon"
-        :icon="buttonProps.iconType || 'fa-check'"
+        :type="buttonProps.iconType || 'fa-check'" 
         size="1x"
         v-if="
           (buttonProps.iconType || buttonProps.iconOnly) &&
@@ -54,13 +56,13 @@
           !buttonProps.loading
         "
       >
-      </fa-icon>
-      <div v-if="!buttonProps.iconOnly" class="text">
-        <slot>默认按钮</slot>
+      </bm-icon>
+      <div v-if="!buttonProps.iconOnly ||buttonProps.menu" class="text">
+        <slot >默认按钮</slot>
       </div>
-      <fa-icon
+      <bm-icon
         class="bm-btn-icon"
-        :icon="buttonProps.iconType || 'fa-check'"
+        :type="buttonProps.iconType || 'fa-check'"
         size="1x"
         v-if="
           (buttonProps.iconType || buttonProps.iconOnly) &&
@@ -68,7 +70,7 @@
           !buttonProps.loading
         "
       >
-      </fa-icon>
+      </bm-icon>
     </button>
   </div>
 </template>
@@ -99,6 +101,7 @@ type ButtonProps = {
   bubble?: string;
   bubbleReverse?: boolean;
   bubbleType?: string;
+  menu?: boolean;
 };
 const buttonProps = defineProps<ButtonProps>();
 const buttonStyle = computed(() => {
@@ -109,12 +112,12 @@ const buttonStyle = computed(() => {
     [`bm-button--outline`]: buttonProps.outline || false,
     [`bm-button--disabled`]: buttonProps.disabled || false,
     [`bm-button--block`]: buttonProps.block || false,
-    [`bm-button--enterAnimate`]: buttonProps.enterAnimate || false,
     [`bm-button--thinFont`]: buttonProps.thinFont || false,
     [`bm-button--icon`]: buttonProps.iconType || false,
     [`bm-button--darkMode`]: buttonProps.darkMode || false,
     [`bm-button--iconOnly`]: buttonProps.iconOnly || false,
     [`bm-button--reverse`]: buttonProps.reverse || false,
+    [`bm-button--enterAnimate`]: buttonProps.enterAnimate || false,
     [`bm-button--loading`]:
       buttonProps.type == "link" ? false : buttonProps.loading,
     [`bm-button--bubble`]: buttonProps.type == "link" ? false : buttonProps.bubble || false,

@@ -11,4 +11,5 @@ const withInstall=<T>(component :T)=>{
     return component as SFCWithInstall<T>
 }
 export const Pin = withInstall(_Pin)
+export type PinProps = InstanceType<typeof Pin>
 export default Pin

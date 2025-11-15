@@ -1,0 +1,54 @@
+* {
+  transition: all 0.3s ease-in-out;
+}
+.bm-pin-group {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.bm-pin-group > .bm-pin {
+  position: relative;
+  z-index: 0;
+}
+.bm-pin-group--horizontal {
+  flex-direction: row;
+}
+.bm-pin-group--vertical {
+  flex-direction: column;
+}
+.bm-pin-group--up {
+  top: 0;
+}
+.bm-pin-group--bottom {
+  bottom: 0;
+}
+.bm-pin-group--left {
+  left: 0;
+}
+.bm-pin-group--right {
+  right: 0;
+}
+.bm-pin-group-sub {
+  position: absolute;
+  transform: translateX(12%) translateY(-16%);
+}
+.bm-pin-group-sub.bm-pin-group--up {
+  top: 0;
+}
+.bm-pin-group-sub.bm-pin-group--bottom {
+  bottom: 0;
+}
+.bm-pin-group-sub.bm-pin-group--left {
+  left: 0;
+}
+.bm-pin-group-sub.bm-pin-group--right {
+  right: 0;
+}
+.bm-pin-group--sleep {
+  opacity: 0;
+  scale: 0.8;
+  pointer-events: none;
+  transform: translateX(-70%) translateY(-16%);
+}

@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e={type:"info",title:"标题",message:"这是一条提示信息",confirmButtonText:"确定",cancelButtonText:"取消",showCancelButton:!1,size:"m",closeOnClickModal:!0,closeOnPressEscape:!0,autoClose:!0,delay:0,placeholder:"请输入",defaultValue:"",customIcon:""};exports.DEFAULT_CONFIG=e;

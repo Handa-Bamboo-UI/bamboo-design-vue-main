@@ -1,4 +1,5 @@
 import _Input from './input.vue'
+import { Button } from "../button";
 import type {App,Plugin} from 'vue'
 type SFCWithInstall<T> = T & Plugin
 const withInstall=<T>(component :T)=>{
@@ -9,4 +10,5 @@ const withInstall=<T>(component :T)=>{
     return component as SFCWithInstall<T>
 }
 export const Input = withInstall(_Input)
+export type InputProps = InstanceType<typeof Input>
 export default Input

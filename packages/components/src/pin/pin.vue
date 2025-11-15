@@ -1,13 +1,17 @@
 <template>
     <div class="bm-pin" :class="pinStyle">
-       <bm-button type="primary" :iconType="pinProps.iconType" :icon-only="pinProps.iconOnly || true" :data-number="pinProps.number" ></bm-button>
+       <bm-button :enterAnimate="pinProps.enterAnimate || false" :type="pinProps.type || 'default'" :iconType="pinProps.iconType" :menu="pinProps.menu || false" :iconOnly="pinProps.iconOnly || false" :bubble="pinProps.bubble" :bubbleReverse="pinProps.bubbleReverse || false" :bubbleType="pinProps.bubbleType || 'none'">
+        <slot>{{pinProps.description || '图钉'}}</slot>
+        </bm-button>
     </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent ,ref} from 'vue'
 export default defineComponent({
     name:'bm-pin',
 })
+ 
+
 </script>
 <script lang="ts" setup>
 import "./style/index.less";
@@ -20,6 +24,13 @@ type PinProps = {
     right?: boolean;
     bottom?: boolean;
     number?:number;
+    type?:string;
+    bubble?: boolean;
+    bubbleReverse?: boolean;
+    bubbleType?: string;
+    description?:string;
+    menu?:boolean;
+    enterAnimate?: boolean;
 };
 const pinProps = defineProps<PinProps>();
 const pinStyle = computed(() => {
@@ -29,7 +40,9 @@ const pinStyle = computed(() => {
        'bm-pin-right': pinProps.right,
        'bm-pin-bottom': pinProps.bottom,
        'bm-pin-default': !(pinProps.up || pinProps.left || pinProps.right || pinProps.bottom),
+ 
   };
 });
+
 </script>
  
