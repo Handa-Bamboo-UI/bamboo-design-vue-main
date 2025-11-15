@@ -1,5 +1,5 @@
 import { defineComponent as t, computed as p, resolveComponent as i, createElementBlock as a, openBlock as r, normalizeClass as u, createVNode as m, withCtx as s, renderSlot as y, createTextVNode as c, toDisplayString as f } from "vue";
-import "./style/index.css";
+/* empty css                  */
 const d = t({
   name: "bm-pin"
 }), v = /* @__PURE__ */ t({

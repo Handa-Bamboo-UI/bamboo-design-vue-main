@@ -1,5 +1,5 @@
 import { defineComponent as p, computed as c, resolveComponent as k, createElementBlock as l, openBlock as t, normalizeClass as i, createBlock as b, createCommentVNode as n, renderSlot as r, createTextVNode as y, createVNode as v, Transition as h, withCtx as _ } from "vue";
-import "./style/index.css";
+/* empty css                  */
 const B = ["href"], T = {
   key: 1,
   class: "text"

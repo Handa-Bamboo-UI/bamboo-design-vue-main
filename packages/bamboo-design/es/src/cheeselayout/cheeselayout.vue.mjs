@@ -1,5 +1,5 @@
 import { defineComponent as v, ref as r, onMounted as I, watch as m, computed as u, createElementBlock as c, openBlock as i, normalizeStyle as $, normalizeClass as g, unref as o, renderSlot as B, Fragment as S, renderList as b } from "vue";
-import "./style/index.css";
+/* empty css                  */
 const k = {
   class: "bm-cheese-dev",
   style: { width: "100%", height: "100%" }

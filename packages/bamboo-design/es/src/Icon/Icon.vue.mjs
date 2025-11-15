@@ -1,5 +1,5 @@
 import { defineComponent as e, resolveComponent as t, createBlock as r, openBlock as s, normalizeStyle as i } from "vue";
-import "./style/index.css";
+/* empty css                  */
 const l = e({
   name: "bm-icon"
 }), f = /* @__PURE__ */ e({

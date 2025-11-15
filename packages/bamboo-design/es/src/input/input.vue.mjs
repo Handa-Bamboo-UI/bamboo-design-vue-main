@@ -1,5 +1,5 @@
 import { defineComponent as d, ref as s, computed as k, onMounted as x, resolveComponent as C, createElementBlock as p, openBlock as a, createCommentVNode as i, normalizeClass as B, createBlock as l, createElementVNode as w } from "vue";
-import "./style/index.css";
+/* empty css                  */
 const z = { class: "input-container" }, T = ["type", "clearable", "value", "placeholder", "maxLength", "minLength", "pattern", "autoComplete", "size"], R = d({
   name: "bm-input"
 }), E = /* @__PURE__ */ d({

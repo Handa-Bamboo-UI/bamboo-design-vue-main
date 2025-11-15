@@ -1,5 +1,5 @@
 import { defineComponent as o, computed as r, createElementBlock as l, openBlock as a, normalizeStyle as i, normalizeClass as s, renderSlot as u } from "vue";
-import "./style/index.css";
+/* empty css                  */
 const m = o({
   name: "bm-pin-group"
 }), f = /* @__PURE__ */ o({
